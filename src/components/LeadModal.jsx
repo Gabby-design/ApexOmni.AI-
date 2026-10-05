@@ -8,7 +8,6 @@ const WEBHOOK_ENDPOINT_URL = import.meta.env.VITE_WEBHOOK_ENDPOINT_URL || '';
 
 
 export default function LeadModal({ isOpen, onClose, sourceContext = 'General', roiTarget = null }) {
-  const [activeTab, setActiveTab] = useState('form'); // 'form' | 'cal'
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
@@ -25,21 +24,16 @@ export default function LeadModal({ isOpen, onClose, sourceContext = 'General', 
     if (isOpen) {
       setIsSuccess(false);
       setErrorMessage('');
-      setActiveTab('form');
     }
   }, [isOpen]);
 
   if (!isOpen) return null;
 
-  const handleTabChange = (tab) => {
-    playTone(600, 'sine', 0.04, 0.08);
-    setActiveTab(tab);
-  };
-
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setFormData(prev => ({ ...prev, [id]: value }));
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -100,19 +94,8 @@ export default function LeadModal({ isOpen, onClose, sourceContext = 'General', 
     }
   };
 
-  const handleCalEmbed = () => {
-    playTone(700, 'sine', 0.05, 0.1);
-    if (typeof window !== 'undefined' && window.Cal) {
-      window.Cal('modal', {
-        calLink: 'apexomniai/audit',
-        config: { layout: 'month_view' }
-      });
-    } else {
-      window.open('https://cal.com', '_blank');
-    }
-  };
-
   return (
+
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian-900/85 backdrop-blur-md">
       <div 
         className="glass-panel-elevated rounded-3xl p-6 sm:p-8 border border-emerald-500/40 shadow-2xl relative text-slate-200 max-w-lg w-full"
@@ -128,24 +111,6 @@ export default function LeadModal({ isOpen, onClose, sourceContext = 'General', 
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
 
-        {/* Modal Mode Switcher Tabs */}
-        {!isSuccess && (
-          <div className="flex items-center gap-2 p-1 rounded-xl bg-slate-900/80 border border-white/5 mb-5 text-xs font-semibold">
-            <button 
-              onClick={() => handleTabChange('form')} 
-              className={`flex-1 py-2 rounded-lg transition-all font-bold ${activeTab === 'form' ? 'bg-emerald-500 text-obsidian-900' : 'text-slate-400 hover:text-white'}`}
-            >
-              Quick Pilot Claim
-            </button>
-            <button 
-              onClick={() => handleTabChange('cal')} 
-              className={`flex-1 py-2 rounded-lg transition-all ${activeTab === 'cal' ? 'bg-violet-600 text-white font-bold' : 'text-slate-400 hover:text-white'}`}
-            >
-              Schedule Live Audit
-            </button>
-          </div>
-        )}
-
         {/* Success View */}
         {isSuccess ? (
           <div className="text-center py-6 space-y-4">
@@ -156,25 +121,19 @@ export default function LeadModal({ isOpen, onClose, sourceContext = 'General', 
             <p className="text-xs text-slate-300 max-w-sm mx-auto">
               Thank you! Your business profile has been assigned to our senior integration engineer. We will message your phone shortly with your tailored setup credentials.
             </p>
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <button 
-                onClick={() => { setIsSuccess(false); setActiveTab('cal'); }} 
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5"
-              >
-                <span>Also Book Calendar Time</span>
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
-              </button>
+            <div className="pt-2 flex justify-center">
               <button 
                 onClick={onClose} 
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-colors"
+                className="px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-colors"
               >
                 Return to Page
               </button>
             </div>
           </div>
-        ) : activeTab === 'form' ? (
-          /* Tab 1: Form Content */
+        ) : (
+          /* Quick Pilot Claim Form Content */
           <div className="space-y-4">
+
             <div>
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold tracking-wide uppercase">
@@ -295,48 +254,6 @@ export default function LeadModal({ isOpen, onClose, sourceContext = 'General', 
                 )}
               </button>
             </form>
-          </div>
-        ) : (
-          /* Tab 2: Calendar Booking Content */
-          <div className="space-y-4">
-            <div>
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-violet-500/20 text-violet-300 text-[10px] font-mono font-bold tracking-wide uppercase">
-                20-Minute Technical Discovery
-              </span>
-              <h3 className="text-2xl font-extrabold text-white mt-1.5">Book Live Architecture Audit</h3>
-              <p className="text-xs text-slate-300 mt-1">
-                Pick a time directly with our senior integration lead to inspect your current booking channels and review custom prompt safeguards.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl glass-panel space-y-4 border border-violet-500/30 text-center">
-              <div className="w-12 h-12 rounded-xl bg-violet-600/20 text-violet-400 border border-violet-500/30 flex items-center justify-center mx-auto">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              </div>
-              <div>
-                <h4 className="text-base font-bold text-white">Instant Calendar Scheduler</h4>
-                <p className="text-xs text-slate-300 mt-1 max-w-sm mx-auto">
-                  Automated Google Calendar &amp; Outlook sync. Guaranteed zero double-booking.
-                </p>
-              </div>
-
-              <button 
-                onClick={handleCalEmbed} 
-                className="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm tracking-wide shadow-lg shadow-violet-500/30 transition-all flex items-center justify-center gap-2"
-              >
-                <span>Open Cal.com Scheduling Window</span>
-                <svg className="w-4 h-4 text-violet-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
-              </button>
-
-              <a 
-                href="https://cal.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-[11px] text-slate-400 hover:text-violet-300 underline block"
-              >
-                Open in standalone window
-              </a>
-            </div>
           </div>
         )}
 
