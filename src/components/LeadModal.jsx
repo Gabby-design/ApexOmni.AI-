@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { playTone, playConfirmSound } from '../utils/audio';
 
 // Production Form Endpoint Configuration:
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || ''; 
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '361d4001-08aa-42e9-8484-559d9f7a45f5'; 
 const WEBHOOK_ENDPOINT_URL = import.meta.env.VITE_WEBHOOK_ENDPOINT_URL || '';
+
 
 
 export default function LeadModal({ isOpen, onClose, sourceContext = 'General', roiTarget = null }) {
