@@ -4,7 +4,7 @@ export default function Navbar({ onOpenLeadModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/[0.04] bg-[#070C14]/75 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-transparent bg-transparent backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
         
         {/* Brand Logo */}

@@ -74,12 +74,12 @@ export default function Hero({ onOpenLeadModal }) {
           </div>
 
           {/* Hero Right Column: Live Booking Teaser Card */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center">
             <div className="w-full max-w-md relative">
               {/* Diffused ambient background glows */}
-              <div className="absolute -top-24 -right-16 w-[420px] h-[420px] bg-emerald-500/20 rounded-full blur-[90px] pointer-events-none"></div>
-              <div className="absolute top-1/3 -right-8 w-72 h-72 bg-teal-500/15 rounded-full blur-[80px] pointer-events-none"></div>
-              <div className="absolute -bottom-20 -left-16 w-80 h-80 bg-blue-600/10 rounded-full blur-[90px] pointer-events-none"></div>
+              <div className="absolute -top-24 -right-16 w-[450px] h-[450px] bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute top-1/3 -right-8 w-80 h-80 bg-teal-500/15 rounded-full blur-[90px] pointer-events-none"></div>
+              <div className="absolute -bottom-20 -left-16 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
 
               <div className="relative bg-[#0B1320]/85 backdrop-blur-xl p-6 sm:p-7 rounded-3xl border border-slate-800/80 shadow-[0_25px_60px_rgba(0,0,0,0.7)] space-y-4">
                 
@@ -92,60 +92,67 @@ export default function Hero({ onOpenLeadModal }) {
                       <p className="text-[11px] text-slate-400">Omnichannel automated sync</p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-mono text-[#10B981] bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/30 font-bold uppercase tracking-wider">ONLINE</span>
+                  <span className="text-[10px] font-mono text-[#10B981] bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/30 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                    ONLINE
+                  </span>
                 </div>
 
                 {/* 3 Activity Items */}
-                <div className="space-y-3 text-xs">
+                <div className="space-y-3.5 text-xs">
                   {/* WhatsApp */}
-                  <div className="p-3.5 rounded-2xl bg-[#09101B] border border-emerald-500/25 flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-[#25D366]/15 flex items-center justify-center text-[#25D366] shrink-0 border border-[#25D366]/30">
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between text-slate-400">
+                  <div className="p-4 rounded-2xl bg-[#09101B] border border-emerald-500/25 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-lg bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] shrink-0">
+                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        </div>
                         <span className="font-semibold text-white">WhatsApp Business</span>
-                        <span className="text-[11px]">12s ago</span>
+                        <span className="text-[11px] text-slate-500">(12s ago)</span>
                       </div>
-                      <p className="text-slate-300 mt-1 text-xs leading-relaxed">Dental implants consultation booked for <strong className="text-white">Saturday 2:30 PM</strong></p>
-                      <span className="inline-block mt-1.5 text-[10px] text-[#10B981] bg-emerald-500/10 px-2 py-0.5 rounded font-mono font-semibold border border-emerald-500/20">$4,750 Potential Value</span>
+                      <span className="text-[10px] text-[#10B981] bg-emerald-500/10 px-2 py-0.5 rounded font-mono font-semibold border border-emerald-500/20">$4,750 Potential Value</span>
                     </div>
+                    <p className="text-slate-300 text-xs pl-8">Dental implants consultation booked for <strong className="text-white">Saturday 2:30 PM</strong></p>
                   </div>
 
                   {/* Instagram */}
-                  <div className="p-3.5 rounded-2xl bg-[#09101B] border border-violet-500/20 flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-violet-500/15 flex items-center justify-center text-pink-400 shrink-0 border border-pink-500/30">
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between text-slate-400">
+                  <div className="p-4 rounded-2xl bg-[#09101B] border border-violet-500/20 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-lg bg-violet-500/15 border border-pink-500/30 flex items-center justify-center text-pink-400 shrink-0">
+                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
                         <span className="font-semibold text-white">Instagram Direct</span>
-                        <span className="text-[11px]">1m ago</span>
+                        <span className="text-[11px] text-slate-500">(1m ago)</span>
                       </div>
-                      <p className="text-slate-300 mt-1 text-xs leading-relaxed">Medspa Laser Facial inquiry qualified &amp; deposited <strong className="text-white">$150</strong></p>
-                      <span className="inline-block mt-1.5 text-[10px] text-[#A78BFA] bg-violet-500/10 px-2 py-0.5 rounded font-mono font-semibold border border-violet-500/20">Synced to Calendar</span>
+                      <span className="text-[10px] text-[#A78BFA] bg-violet-500/10 px-2 py-0.5 rounded font-mono font-semibold border border-violet-500/20">Synced to Calendar</span>
                     </div>
+                    <p className="text-slate-300 text-xs pl-8">Medspa Laser Facial inquiry qualified &amp; deposited <strong className="text-white">$150</strong></p>
                   </div>
 
                   {/* Website AI Concierge */}
-                  <div className="p-3.5 rounded-2xl bg-[#09101B] border border-slate-800 flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-300 shrink-0 border border-slate-700">
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between text-slate-400">
+                  <div className="p-4 rounded-2xl bg-[#09101B] border border-slate-800 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 shrink-0">
+                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                        </div>
                         <span className="font-semibold text-white">Website AI Concierge</span>
-                        <span className="text-[11px]">3m ago</span>
+                        <span className="text-[11px] text-slate-500">(3m ago)</span>
                       </div>
-                      <p className="text-slate-300 mt-1 text-xs leading-relaxed">Midnight visitor inquiry responded in <strong className="text-white">1.8 seconds</strong></p>
-                      <span className="inline-block mt-1.5 text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded font-mono border border-slate-700/60">Zero Human Labor</span>
+                      <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded font-mono border border-slate-700/60">Zero Human Labor</span>
                     </div>
+                    <p className="text-slate-300 text-xs pl-8">Midnight visitor inquiry responded in <strong className="text-white">1.8 seconds</strong></p>
                   </div>
                 </div>
 
-                {/* Bottom Trigger */}
-                <a href="#simulator" className="w-full py-3 rounded-xl bg-[#09101B] hover:bg-slate-800 text-[#10B981] border border-white/5 text-xs font-semibold text-center block transition-colors">
-                  Try It Yourself In The Live Simulator Below &darr;
+              </div>
+
+              {/* Sub-Card Trigger Link */}
+              <div className="text-center pt-4">
+                <a href="#simulator" className="text-xs font-medium text-slate-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5">
+                  <span>Try It Yourself In The Live Simulator Below</span>
+                  <span>&darr;</span>
                 </a>
               </div>
             </div>
