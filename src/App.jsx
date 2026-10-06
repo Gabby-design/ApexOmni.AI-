@@ -29,21 +29,27 @@ export default function App() {
     initialTab: 'privacy'
   });
 
-  // Interactive mouse spotlight effect on glass panels
+  // High-performance interactive mouse spotlight (zero reflow during scroll)
   useEffect(() => {
+    let rafId = null;
     const handleMouseMove = (e) => {
-      const cards = document.querySelectorAll('.glass-panel');
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        const card = e.target.closest && e.target.closest('.glass-panel, .glass-panel-elevated');
+        if (card) {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        }
+        rafId = null;
       });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const handleToggleSound = () => {
@@ -90,12 +96,16 @@ export default function App() {
   };
 
   return (
-    <div className="bg-obsidian text-slate-200 antialiased min-h-screen flex flex-col selection:bg-emerald-500/30 selection:text-emerald-300">
-      <Navbar 
-        onOpenLeadModal={handleOpenLeadModal} 
-        isSoundMuted={isSoundMuted} 
-        onToggleSound={handleToggleSound} 
-      />
+    <div className="bg-[#06090F] text-slate-200 antialiased min-h-screen flex flex-col selection:bg-emerald-500/30 selection:text-emerald-300 relative">
+      {/* GPU Accelerated Fixed Background Mesh */}
+      <div className="bg-mesh-glow" aria-hidden="true" />
+
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar 
+          onOpenLeadModal={handleOpenLeadModal} 
+          isSoundMuted={isSoundMuted} 
+          onToggleSound={handleToggleSound} 
+        />
 
       <main className="flex-1">
         <Hero onOpenLeadModal={handleOpenLeadModal} />
@@ -130,6 +140,7 @@ export default function App() {
       />
 
       <FloatingChat onOpenLeadModal={handleOpenLeadModal} />
+      </div>
     </div>
   );
 }

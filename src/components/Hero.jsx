@@ -77,11 +77,11 @@ export default function Hero({ onOpenLeadModal }) {
           <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center">
             <div className="w-full max-w-md relative">
               {/* Diffused ambient background glows */}
-              <div className="absolute -top-24 -right-16 w-[450px] h-[450px] bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none"></div>
-              <div className="absolute top-1/3 -right-8 w-80 h-80 bg-teal-500/15 rounded-full blur-[90px] pointer-events-none"></div>
-              <div className="absolute -bottom-20 -left-16 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute -top-24 -right-16 w-[450px] h-[450px] bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none transform-gpu"></div>
+              <div className="absolute top-1/3 -right-8 w-80 h-80 bg-teal-500/15 rounded-full blur-[90px] pointer-events-none transform-gpu"></div>
+              <div className="absolute -bottom-20 -left-16 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none transform-gpu"></div>
 
-              <div className="relative bg-[#0B1320]/85 backdrop-blur-xl p-6 sm:p-7 rounded-3xl border border-slate-800/80 shadow-[0_25px_60px_rgba(0,0,0,0.7)] space-y-4">
+              <div className="relative bg-[#0B1320]/85 backdrop-blur-xl p-6 sm:p-7 rounded-3xl border border-slate-800/80 shadow-[0_25px_60px_rgba(0,0,0,0.7)] space-y-4 transform-gpu">
                 
                 {/* Card Header */}
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">

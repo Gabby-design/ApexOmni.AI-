@@ -4,39 +4,70 @@
 
 :root {
   color-scheme: dark;
+  background-color: #06090F;
+}
+
+html {
+  background-color: #06090F !important;
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #0B0F19;
+  background-color: #06090F !important;
   color: #E2E8F0;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
-/* Ambient Background Mesh */
+#root {
+  background-color: #06090F;
+  min-height: 100vh;
+}
+
+/* Ambient Background Mesh - Fixed viewport GPU accelerated */
 .bg-mesh-glow {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  transform: translateZ(0);
+  will-change: transform;
   background-image: 
-    radial-gradient(circle at 18% 12%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 82% 16%, rgba(99, 102, 241, 0.14) 0%, transparent 44%),
-    radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 48%),
-    radial-gradient(circle at 85% 82%, rgba(99, 102, 241, 0.11) 0%, transparent 45%),
-    radial-gradient(circle at 15% 90%, rgba(16, 185, 129, 0.09) 0%, transparent 45%);
+    radial-gradient(circle at 18% 12%, rgba(16, 185, 129, 0.10) 0%, transparent 40%),
+    radial-gradient(circle at 82% 16%, rgba(99, 102, 241, 0.12) 0%, transparent 44%),
+    radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.06) 0%, transparent 48%),
+    radial-gradient(circle at 85% 82%, rgba(99, 102, 241, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 15% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 45%);
 }
 
-/* Glassmorphism Classes */
+/* Glassmorphism Classes with GPU Composite Promotion */
 .glass-panel {
-  background: rgba(17, 24, 39, 0.68);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(17, 24, 39, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .glass-panel-elevated {
-  background: rgba(20, 28, 46, 0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(20, 28, 46, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .glass-input {
