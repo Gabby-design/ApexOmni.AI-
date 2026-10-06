@@ -29,7 +29,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://apex-omni-ai.vercel.app/#software",
+        "name": "ApexOmni AI",
+        "operatingSystem": "All",
+        "applicationCategory": "BusinessApplication",
+        "description": "24/7 AI-Powered Booking Receptionists for High-Ticket Local Businesses deploying across Website Chat, WhatsApp Business, Instagram DMs, and TikTok.",
+        "url": "https://apex-omni-ai.vercel.app/",
+        "image": "https://apex-omni-ai.vercel.app/og-preview.png",
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "490",
+          "highPrice": "1490",
+          "offerCount": "3"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://apex-omni-ai.vercel.app/#organization",
+        "name": "ApexOmni AI",
+        "url": "https://apex-omni-ai.vercel.app/",
+        "logo": "https://apex-omni-ai.vercel.app/og-preview.png"
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-obsidian text-slate-200 antialiased bg-mesh-glow min-h-screen flex flex-col selection:bg-emerald-500/30 selection:text-emerald-300">
   <div id="root"></div>

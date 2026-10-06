@@ -31,15 +31,16 @@ export default function Channels() {
               <p className="text-xs text-slate-300 leading-relaxed">
                 Direct Cloud API automation. Delivers 98% open rates with personalized 2-way consultation booking, treatment guidance, and 24h reminders.
               </p>
-              <a 
-                href="https://wa.me/18005550199?text=Hi%20ApexOmni,%20I%20want%20to%20test%20the%20AI%20receptionist%20for%20my%20business" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <button 
+                onClick={() => {
+                  const el = document.getElementById('simulator');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="mt-2 w-full py-2 px-3 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/30 text-[#25D366] font-semibold text-[11px] flex items-center justify-center gap-1.5 transition-colors"
               >
-                <span>Test Live on WhatsApp</span>
+                <span>Test in Live Simulator</span>
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
-              </a>
+              </button>
             </div>
             <div className="pt-3 border-t border-white/5 text-[11px] font-mono text-emerald-400 flex items-center justify-between">
               <span>Open Rate: 98%</span>
@@ -61,6 +62,16 @@ export default function Channels() {
               <p className="text-xs text-slate-300 leading-relaxed">
                 Converts story replies, post comments, and ad clicks into immediate booked calendar slots while your prospects are scrolling.
               </p>
+              <button 
+                onClick={() => {
+                  const el = document.getElementById('simulator');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="mt-2 w-full py-2 px-3 rounded-lg bg-pink-500/15 hover:bg-pink-500/25 border border-pink-500/30 text-pink-300 font-semibold text-[11px] flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <span>Test in Live Simulator</span>
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+              </button>
             </div>
             <div className="pt-3 border-t border-white/5 text-[11px] font-mono text-pink-400 flex items-center justify-between">
               <span>Conversion: 3.4x</span>
@@ -80,6 +91,16 @@ export default function Channels() {
               <p className="text-xs text-slate-300 leading-relaxed">
                 Captures viral video inquiries in real-time. Instantly qualifies prospective clients and filters tire-kickers with smart questionnaires.
               </p>
+              <button 
+                onClick={() => {
+                  const el = document.getElementById('simulator');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="mt-2 w-full py-2 px-3 rounded-lg bg-[#25F4EE]/15 hover:bg-[#25F4EE]/25 border border-[#25F4EE]/30 text-[#25F4EE] font-semibold text-[11px] flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <span>Test in Live Simulator</span>
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+              </button>
             </div>
             <div className="pt-3 border-t border-white/5 text-[11px] font-mono text-[#25F4EE] flex items-center justify-between">
               <span>Response: &lt; 2s</span>
@@ -101,6 +122,16 @@ export default function Channels() {
               <p className="text-xs text-slate-300 leading-relaxed">
                 Engages midnight visitors who browse high-ticket services after work hours. Answers FAQs and books slots directly into your diary.
               </p>
+              <button 
+                onClick={() => {
+                  const el = document.getElementById('simulator');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="mt-2 w-full py-2 px-3 rounded-lg bg-violet-500/15 hover:bg-violet-500/25 border border-violet-500/30 text-violet-300 font-semibold text-[11px] flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <span>Test in Live Simulator</span>
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+              </button>
             </div>
             <div className="pt-3 border-t border-white/5 text-[11px] font-mono text-violet-400 flex items-center justify-between">
               <span>After-Hours: 45%</span>

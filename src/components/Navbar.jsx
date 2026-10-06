@@ -17,7 +17,7 @@ export default function Navbar({ onOpenLeadModal, isSoundMuted, onToggleSound })
           <a href="#hero" className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg p-1">
             <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-violet-600 p-[1px] shadow-lg shadow-emerald-500/10">
               <div className="w-full h-full bg-obsidian-900 rounded-[11px] flex items-center justify-center">
-                <svg className="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                   <path d="M2 17l10 5 10-5"></path>
                   <path d="M2 12l10 5 10-5"></path>

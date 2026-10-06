@@ -88,7 +88,7 @@ export default function LeadModal({ isOpen, onClose, sourceContext = 'General', 
       });
     } catch (err) {
       console.error('Lead submission failure:', err);
-      setErrorMessage('Transmission error. Please check your network or message our WhatsApp directly.');
+      setErrorMessage('Transmission error. Please check your connection and try submitting again.');
     } finally {
       setIsSubmitting(false);
     }

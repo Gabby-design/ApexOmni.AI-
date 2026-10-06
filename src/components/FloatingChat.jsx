@@ -90,14 +90,16 @@ export default function FloatingChat({ onOpenLeadModal }) {
               >
                 "I want to deploy this for my clinic"
               </button>
-              <a 
-                href="https://wa.me/18005550199?text=Hi%20ApexOmni,%20I%20want%20to%20test%20the%20AI%20receptionist%20for%20my%20business" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-full text-center block p-2 rounded-lg bg-[#25D366]/20 hover:bg-[#25D366]/30 text-[#25D366] border border-[#25D366]/30 text-[11px] font-semibold transition-all"
+              <button 
+                onClick={() => {
+                  setIsOpen(false);
+                  const el = document.getElementById('simulator');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="w-full text-center block p-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/30 text-[11px] font-semibold transition-all"
               >
-                Direct WhatsApp Demo Chat
-              </a>
+                Try All 4 Channels in Simulator
+              </button>
             </div>
           </div>
         </div>

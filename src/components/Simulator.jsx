@@ -86,7 +86,7 @@ const PROMPT_ANSWERS = {
   }
 };
 
-export default function Simulator() {
+export default function Simulator({ onOpenLeadModal }) {
   const [channel, setChannel] = useState('whatsapp');
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
@@ -610,6 +610,28 @@ export default function Simulator() {
                           4:00 PM
                         </button>
                       </div>
+                    </div>
+                  )}
+
+                  {/* Booking Complete Success Banner */}
+                  {step === 'done' && (
+                    <div className="p-3.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-center space-y-2">
+                      <div className="flex items-center justify-center gap-1.5 text-xs font-bold text-emerald-400">
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Appointment Synced to Diary</span>
+                      </div>
+                      <p className="text-[11px] text-slate-300">
+                        Experience this speed for your actual clients. Zero missed leads, 24/7.
+                      </p>
+                      {onOpenLeadModal && (
+                        <button 
+                          onClick={() => onOpenLeadModal(`Simulator Complete: ${cfg.title}`)} 
+                          className="w-full py-2 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-obsidian-900 font-bold text-xs tracking-wide transition-all shadow-md shadow-emerald-500/20 flex items-center justify-center gap-1.5"
+                        >
+                          <span>Claim 14-Day Free Pilot for My Business</span>
+                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                        </button>
+                      )}
                     </div>
                   )}
 

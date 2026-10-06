@@ -101,7 +101,7 @@ export default function App() {
         <Hero onOpenLeadModal={handleOpenLeadModal} />
         <TrustRibbon />
         <Channels />
-        <Simulator />
+        <Simulator onOpenLeadModal={handleOpenLeadModal} />
         <RoiCalculator onOpenLeadModalWithRoi={handleOpenLeadModalWithRoi} />
         <Comparison />
         <CaseStudies />
