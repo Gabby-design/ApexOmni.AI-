@@ -108,15 +108,15 @@ export default function FloatingChat({ onOpenLeadModal }) {
       {/* Floating Trigger Button */}
       <button 
         onClick={toggleChat} 
-        className="group relative flex items-center gap-2.5 px-4 py-3 rounded-full bg-slate-900 border border-emerald-500/50 hover:border-emerald-400 shadow-glow-emerald transition-all transform hover:scale-105 focus:outline-none"
+        className="group relative flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#0D1520]/95 border border-emerald-500/40 hover:border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105 focus:outline-none"
         aria-label="Test our live AI bot"
       >
-        <span className="relative flex h-3 w-3">
+        <span className="relative flex h-2.5 w-2.5">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
         </span>
-        <span className="text-xs font-bold text-white tracking-wide">Test our Live Bot</span>
-        <svg className="w-4 h-4 text-emerald-400 group-hover:rotate-12 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <span className="text-xs font-semibold text-white tracking-wide">Test our Live Bot</span>
+        <svg className="w-4 h-4 text-slate-300 group-hover:text-emerald-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
         </svg>
       </button>
